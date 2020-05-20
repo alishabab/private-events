@@ -3,8 +3,8 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-    # @current_user = User.find_by_id(session[:current_user_id])
-    @current_user = User.find_by_id(1)
+     @current_user = User.find_by_id(session[:current_user_id])
+    # @current_user = User.find_by_id(1)
   end
 
   def create
@@ -16,8 +16,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @current_user = User.find_by_id(session[:current_user_id])
-    @current_user = User.find_by_id(1)
+    @current_user = User.find_by_id(session[:current_user_id])
+    # @current_user = User.find_by_id(1)
   end
 
   private
