@@ -12,11 +12,11 @@ class UsersController < ApplicationController
       session[:current_user_id] = @user.id
       redirect_to @user
     else
-    @user = User.new(signup_params)
-    if @user.save
-      session[:current_user_id] = @user.id
-      redirect_to @user
-    end
+      @user = User.new(signup_params)
+      if @user.save
+        session[:current_user_id] = @user.id
+        redirect_to @user
+      end
   end
   end
 

@@ -1,13 +1,21 @@
 <h1>Events#index</h1>
 
 <h2>Past Events</h2>
-<% @past.each do |event|%>
-<%= event.name %>
+  <ul> 
+  <% @past.each do |event|%>
+  <li>
+  <%= link_to event.name, event_path(event) %>
+  </li>
+  
 <%end%>
+</ul>
+
 <h2>Future Events</h2>
-<% @future.each do |event|%>
-<%= event.name %>
+<ul> 
+  <% @future.each do |event|%>
+  <li>
+  <%= link_to event.name, event_path(event) %>
+
+  </li>
 <%end%>
-
-
-<%= link_to  "Create New Event", new_event_path %>
+</ul>

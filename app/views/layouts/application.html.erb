@@ -11,11 +11,17 @@
 
   <body>
     <nav>
-      <% if @current_user %>
-        <%= @current_user.name %>
-  
+      <% if @current_user != nil %>
+        <span> Current user: </span>
+        <%= @current_user.name %> <br>
+        <%= link_to  "Sign in as new user ---   ", new_user_path %>
+        <%= link_to  "Create new event   ---  ", new_event_path %>
+        <%= link_to  "See all User events ---   ", user_path(@current_user) %>
       <% end %>
-     
+
+      <%= link_to  "Events List", events_path %>
+
+
     </nav>
 
 
