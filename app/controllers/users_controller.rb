@@ -8,11 +8,16 @@ class UsersController < ApplicationController
   end
 
   def create
+    if @user = User.find_by(email: signup_params[:email])
+      session[:current_user_id] = @user.id
+      redirect_to @user
+    else
     @user = User.new(signup_params)
     if @user.save
       session[:current_user_id] = @user.id
       redirect_to @user
     end
+  end
   end
 
   def show

@@ -2,6 +2,7 @@
 
 class EventsController < ApplicationController
   def index
+    @current_user = User.find_by_id(session[:current_user_id])
     @events = Event.all
     @past = Event.all.past
     @future = Event.all.future
@@ -25,6 +26,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :description)
+    params.require(:event).permit(:name, :date, :description)
   end
 end

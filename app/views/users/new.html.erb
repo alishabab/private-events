@@ -1,9 +1,6 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
-<%= form_for @user do |f|%>
-  <%=f.label "Name" %>
-  <%=f.text_field(:name)%>
-  <%=f.label "Email" %>
-  <%=f.text_field(:email)%>
-  <%=f.submit%>
-<%end%>
+<h2>Sign Up </h2>
+<%= render 'signup_form'%>
+<h2>Sign In </h2>
+<%= render 'signin_form'%>
