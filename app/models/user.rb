@@ -5,10 +5,13 @@ class User < ApplicationRecord
   has_many :invitations, foreign_key: :attendee_id
   has_many :attended_events, through: :invitations
 
-  def upcoming_events
-    Event.where('date > ?', Date.today) 
-  end
-  def previous_events
-    Event.where('date < ?', Date.today) 
-  end
+  scope :past, -> { where('date < ?', Date.today) }
+  scope :future, -> { where('date >= ?', Date.today) }
+
+  # def upcoming_events
+  #   Event.where('date > ?', Date.today)
+  # end
+  # def previous_events
+  #   Event.where('date < ?', Date.today)
+  # end
 end

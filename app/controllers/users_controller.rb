@@ -3,7 +3,7 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-     @current_user = User.find_by_id(session[:current_user_id])
+    @current_user = User.find_by_id(session[:current_user_id])
     # @current_user = User.find_by_id(1)
   end
 
@@ -17,7 +17,8 @@ class UsersController < ApplicationController
 
   def show
     @current_user = User.find_by_id(session[:current_user_id])
-    @user = User.find_by_id(params[:id])
+    @past = @current_user.created_events.past
+    @future = @current_user.created_events.future
   end
 
   private
