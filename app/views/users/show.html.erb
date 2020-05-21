@@ -1,6 +1,15 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
-
-  <% @current_user.created_events.each do |event| %>
+  
+  <h2>Attended Events</h2>
+  <% @current_user.attended_events.each do |event| %>
     <%= event.name %>
   <% end %>
+  <h2>Previous Events</h2>
+<% @current_user.previous_events.each do |event|%>
+<%= event.name %>
+<%end%>
+<h2>Upcoming Events</h2>
+<% @current_user.upcoming_events.each do |event|%>
+<%= event.name %>
+<%end%>
