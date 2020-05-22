@@ -11,15 +11,30 @@
 
   <body>
     <nav>
+    <% flash.each do |type, msg| %>
+    <% if type == 'notice' %>
+      <h5>  <%=  msg  %> </h5>
+    <% else %>
+      <ul>
+        <% msg.each do |m| %>
+          <li> <%= m %> </li>
+        <% end %>
+      </ul>
+    <% end %>
+    <% end %>
+    <br>
+
       <% if @current_user != nil %>
         <span> Current user: </span>
         <%= @current_user.name %> <br>
-        <%= link_to  "Sign in as new user ---   ", '/login' %>
-        <%= link_to  "Create new event   ---  ", new_event_path %>
-        <%= link_to  "See all User events ---   ", user_path(@current_user) %>
+        <%= link_to  "--- Logout ---   ", '/logout' %>
+        <%= link_to  "--- Create new event   ---  ", new_event_path %>
+        <%= link_to  "--- See all User events ---   ", user_path(@current_user) %>
+        <% else %>
+        <%= link_to  "--- Sign in ---   ", '/login' %>
       <% end %>
 
-      <%= link_to  "Events List", events_path %>
+      <%= link_to  "--- Events List ---", events_path %>
 
 
     </nav>

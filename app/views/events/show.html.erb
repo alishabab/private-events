@@ -1,4 +1,4 @@
-<h1>These are all attendees for this event</h1>
+<h1>These are all attendees for "<i><%= @event.name %></i>" event </h1>
 <ul>
 <% @event.attendees.each do |attendee| %>
     <li> 
@@ -7,9 +7,12 @@
 <%end%>
 </ul>
 
+<% if current_user == @event.creator %>
 
 <%= form_for [@event,@invitation] do |f|%>
-  <%=f.label "Id" %>
+  <%=f.label "Please Enter User ID" %>
   <%=f.text_field(:attendee_id)%>
   <%=f.submit 'Invite'%>
 <%end%>
+
+<% end %>
