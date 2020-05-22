@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 Rails.application.routes.draw do
   resources :users, only: %i[new create show]
   resources :events, only: %i[index new create show] do

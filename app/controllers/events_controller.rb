@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class EventsController < ApplicationController
   skip_before_action :authorized, only: %i[index show]
   def index
@@ -28,7 +26,7 @@ class EventsController < ApplicationController
     else
       flash.now[:alert] = @event.errors.full_messages
       render :new
-     end
+    end
   end
 
   private

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class InvitationsController < ApplicationController
   def new
     @invitation = Invitation.new
