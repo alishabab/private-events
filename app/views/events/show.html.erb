@@ -1,5 +1,15 @@
 <h1>These are all attendees for this event</h1>
-
+<ul>
 <% @event.attendees.each do |attendee| %>
+    <li> 
   <%= attendee.name %>
+  </li>
+<%end%>
+</ul>
+
+
+<%= form_for [@event,@invitation] do |f|%>
+  <%=f.label "Id" %>
+  <%=f.text_field(:attendee_id)%>
+  <%=f.submit 'Invite'%>
 <%end%>
