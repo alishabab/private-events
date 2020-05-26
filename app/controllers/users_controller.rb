@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @current_user = current_user
-    # @current_user = User.find_by_id(1)
   end
 
   def create
