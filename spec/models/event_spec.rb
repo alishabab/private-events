@@ -15,40 +15,21 @@ RSpec.describe Event, type: :model do
   end
 
   describe '::events' do
-    before do
-      User.create!(
-        name: 'User1',
-        email: 'apple@gmail.com'
-      )
+   
+    before(:example) do
+      FactoryBot.create(:user)
+      @event1 = FactoryBot.create(:event)
+      @event2 = FactoryBot.create(:event, name: 'event2', date: Date.new(2021, 2, 3))
     end
-
-    let!(:event1) do
-      Event.create!(
-        name: 'event1',
-        description: 'desc1',
-        date: Date.new(2001, 2, 3),
-        creator: User.first
-      )
-    end
-
-    let!(:event2) do
-      Event.create!(
-        name: 'event2',
-        description: 'desc2',
-        date: Date.new(2021, 2, 3),
-        creator: User.first
-      )
-    end
-
-    # 2. Actually query the database.
+    
     it 'returns only event1 to be a past event' do
-      expect(Event.past).to_not include(event2)
-      expect(Event.past).to include(event1)
+      expect(Event.past).to_not include(@event2)
+      expect(Event.past).to include(@event1)
     end
 
     it 'returns only event2 to be a future event' do
-      expect(Event.future).to include(event2)
-      expect(Event.future).to_not include(event1)
+      expect(Event.future).to include(@event2)
+      expect(Event.future).to_not include(@event1)
     end
   end
 end
