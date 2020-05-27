@@ -15,13 +15,12 @@ RSpec.describe Event, type: :model do
   end
 
   describe '::events' do
-   
     before(:example) do
       FactoryBot.create(:user)
       @event1 = FactoryBot.create(:event)
       @event2 = FactoryBot.create(:event, name: 'event2', date: Date.new(2021, 2, 3))
     end
-    
+
     it 'returns only event1 to be a past event' do
       expect(Event.past).to_not include(@event2)
       expect(Event.past).to include(@event1)
