@@ -1,0 +1,20 @@
+<h1>Showing all events created by user</h1>
+
+  <h2>Previous Created Events</h2>
+  <ul> 
+  <% @past.each do |event|%>
+  <li>
+  <%= link_to event.name, event_path(event) %>
+  </li>
+  
+<%end%>
+</ul>
+<h2>Upcoming Created Events</h2>
+<ul> 
+  <% @future.each do |event|%>
+  <li>
+  <%= link_to event.name, event_path(event) %>
+
+  </li>
+<%end%>
+</ul>

@@ -1,0 +1,8 @@
+<h1>Login</h1>
+   <%= form_tag '/login' do %>
+   <%= label_tag :email%>
+   <%= email_field_tag :email %>
+   <%= submit_tag "Login"%>
+<%end%>
+
+<%= link_to  "Sign Up for an account", new_user_path %>
