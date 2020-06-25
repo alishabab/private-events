@@ -6,6 +6,12 @@
 
 > In this project, we implemented a site similar to Eventbrite which allows users to create events and then manage user signups. Users can create events and send invitations and invite other users. We also did unit tests using RSpec and Integration tests using Capybara.
 
+>Logged in user can see events created by him.
+![screenshot](screenshot_1.png)
+
+>Logged in user can create a new event.
+![screenshot](screenshot_2.png)
+
 
 
 ## Built With
@@ -41,7 +47,7 @@ rails db:migrate
 rails s 
 ```
 
-- Open a web page and go to [port 3000 on your local machine.](http://localhost:3000)
+- Open the browser and go to [port 3000 on your local machine.](http://localhost:3000)
 - The original project can be found on this [Odin Project page](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations).
 
 ## Authors
